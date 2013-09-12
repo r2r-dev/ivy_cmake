@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0">
+    <info organisation="com.adva.aos" module="libcalc" revision="2.0.0-SNAPSHOT"/>
+    <publications>
+        <artifact name="libcalc" type="tar" ext="tar" conf="default"/>
+        <artifact name="libcalc" type="pom" ext="pom" conf="default"/>
+    </publications>
+    <dependencies>
+        <dependency org="com.adva.aos" name="inccalc" rev="2.0.0-SNAPSHOT"/>
+    </dependencies>
+</ivy-module>

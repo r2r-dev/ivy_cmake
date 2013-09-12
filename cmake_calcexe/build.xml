@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="calcexe" default="resolve" xmlns:ivy="antlib:org.apache.ivy.ant">
+
+    <!--
+    ================
+    Build properties
+    ================
+    -->
+    
+    <property name="name" value="calcexe"/>
+    <property name="version" value="2.0.0"/>
+   
+    <property name="res.dir" location="resources"/>
+    <property name="build.dir" location="build"/>
+
+    <!--
+    ===========
+    Build setup
+    ===========
+    -->
+
+    <!--
+      makes a pom for the project based off the ivy.xml file
+    -->
+    <target name="gen-pom">
+      <ivy:makepom ivyfile="ivy.xml" pomfile="${name}-${version}-SNAPSHOT.pom">
+        <mapping conf="default" scope="compile"/>
+      </ivy:makepom>
+    </target>
+
+    <target name="resolve">
+        <mkdir dir="${res.dir}"/>
+        <ivy:retrieve pattern="${res.dir}/[artifact]-[revision].[ext]"/>
+        <untar dest="${res.dir}">
+            <fileset dir="${res.dir}">
+                <include name="*.tar"/>
+            </fileset>
+        </untar> 
+        <delete>
+            <fileset dir="${res.dir}">
+                <include name="*.tar"/>
+            </fileset>
+        </delete>
+    </target>
+
+    <target name="publish" depends="gen-pom">
+        <tar destfile="${name}-${version}-SNAPSHOT.tar" basedir="${build.dir}"/>
+        <ivy:publish organisation="com.acme.foo" module="${name}" revision="${version}-SNAPSHOT" resolver="artifactory-publish" overwrite="true" srcivypattern="ivy.xml">
+            <artifacts pattern="[artifact]-[revision].[ext]"/>
+        </ivy:publish>
+        <delete>
+            <fileset dir=".">
+                <include name="*.tar"/>
+                <include name="*.pom"/>
+            </fileset>
+        </delete>
+    </target>
+
+</project>

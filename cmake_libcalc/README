@@ -1,0 +1,6 @@
+To build libcalc:
+ - retrieve dependent artifacts from repository using :
+   $ ant resolve
+To deploy libcalc:
+ - compress binaries, generate pom and push artifact:
+   $ ant publish

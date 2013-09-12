@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0">
+    <info organisation="com.acme.foo" module="calcexe" revision="2.0.0-SNAPSHOT"/>
+    <publications>
+        <artifact name="calcexe" type="tar" ext="tar" conf="default"/>
+        <artifact name="calcexe" type="pom" ext="pom" conf="default"/>
+    </publications>
+    <dependencies>
+        <dependency org="com.acme.foo" name="libcalc" rev="2.0.0-SNAPSHOT"/>
+    </dependencies>
+</ivy-module>

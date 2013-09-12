@@ -1,0 +1,3 @@
+To deploy inccalc:
+ - compress sources, generate pom and push artifact:
+   $ ant publish

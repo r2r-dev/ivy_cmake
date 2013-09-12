@@ -1,0 +1,6 @@
+To build calcexe:
+ - retrieve dependent artifacts from repository using :
+   $ ant resolve
+To deploy calcexe:
+ - compress binaries, generate pom and push artifact:
+   $ ant publish

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0">
+    <info organisation="com.adva.aos" module="inccalc" revision="2.0.0-SNAPSHOT"/>
+    <publications>
+        <artifact name="inccalc" type="tar" ext="tar" conf="default"/>
+        <artifact name="inccalc" type="pom" ext="pom" conf="default"/>
+    </publications>
+</ivy-module>
